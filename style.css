@@ -25,7 +25,12 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--black);
+  background-color: var(--black);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 900px 500px at 15% 0%, rgba(214,69,69,0.10), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 85% 100%, rgba(242,193,78,0.07), transparent 60%);
+  background-attachment: fixed;
   color: var(--cream);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -46,11 +51,27 @@ ul { list-style: none; }
 
 h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
 
-/* subtle chalkboard texture used across dark sections */
-.hero, .signature, .delivery, .site-footer {
+/* ambient glows per section for depth, avoids a flat single-tone background */
+.hero {
   background-image:
-    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.02) 0, transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(255,255,255,0.02) 0, transparent 40%);
+    radial-gradient(circle at 20% 15%, rgba(214,69,69,0.12), transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(242,193,78,0.08), transparent 45%);
+}
+.signature, .page-banner {
+  background-image:
+    radial-gradient(circle at 85% 10%, rgba(242,193,78,0.07), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(214,69,69,0.06), transparent 45%);
+}
+.menu-section, .carousel-section {
+  background-image: radial-gradient(circle at 50% 0%, rgba(242,193,78,0.05), transparent 55%);
+}
+.faq-section, .about-section {
+  background-image: radial-gradient(circle at 90% 50%, rgba(214,69,69,0.05), transparent 50%);
+}
+.delivery, .site-footer {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(214,69,69,0.08), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(242,193,78,0.06), transparent 40%);
 }
 
 /* ===================== BUTTONS ===================== */
@@ -157,7 +178,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
     right: 0;
     flex-direction: column;
     gap: 0;
-    background: var(--black-soft);
+    background: linear-gradient(160deg, #2a2620, var(--black-soft));
     border-bottom: 1px solid var(--line);
     max-height: 0;
     overflow: hidden;
@@ -291,7 +312,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   margin-top: 36px;
 }
 .highlight-card {
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px 24px;
@@ -322,7 +343,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   margin: 40px 0;
 }
 .value-card {
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 24px;
@@ -338,7 +359,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   gap: 40px;
 }
 .contact-card {
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 32px;
@@ -369,7 +390,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   margin-bottom: 24px;
 }
 .signature-card {
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 36px;
@@ -410,7 +431,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   flex-wrap: wrap;
 }
 .tab-btn {
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border: 1px solid var(--line);
   color: var(--cream-dim);
   padding: 12px 24px;
@@ -452,7 +473,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
 .menu-table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -502,7 +523,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   justify-content: center;
   color: var(--cream-dim);
   font-size: 0.85rem;
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
 }
 
 /* ===================== DELIVERY ===================== */
@@ -534,7 +555,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   justify-content: center;
   color: var(--cream-dim);
   font-size: 0.85rem;
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
 }
 @media (max-width: 780px) {
   .delivery-inner { grid-template-columns: 1fr; }
@@ -607,7 +628,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
 .dish-card {
   flex: 0 0 240px;
   scroll-snap-align: start;
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 26px 22px;
@@ -626,7 +647,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
   height: 40px;
   border-radius: 50%;
   border: 1px solid var(--line);
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   color: var(--chalk-yellow);
   font-size: 1.4rem;
   cursor: pointer;
@@ -665,7 +686,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
 .faq-section { padding: 70px 24px; max-width: 760px; margin: 0 auto; }
 .faq-list { margin-top: 30px; display: flex; flex-direction: column; gap: 12px; }
 .faq-item {
-  background: var(--black-soft);
+  background: linear-gradient(160deg, #2a2620, var(--black-soft));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 6px 22px;
